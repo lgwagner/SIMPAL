@@ -8,7 +8,7 @@ then compiled into a control flow graph (CFG) and translated into a Lustre model
 The analysis is performed by JKind, which is embedded into the tool directly, thus it is not necessary to install it.
 
 The tool does require the user to install:
-*GraphViz (Available at: http://www.graphviz.org)
-*Yices SMT Solver (Version 1 available at http://yices.csl.sri.com)
+  *GraphViz (Available at: http://www.graphviz.org)
+  *Yices SMT Solver (Version 1 available at http://yices.csl.sri.com)
 
 A document describing the function and features of the tool and the Limp language is available in the source repository under documentation.
