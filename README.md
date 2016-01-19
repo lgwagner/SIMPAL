@@ -12,4 +12,4 @@ The tool does require the user to install:
 - Yices SMT Solver (Version 1 available at http://yices.csl.sri.com)
 
 A document describing the function and features of the tool and the Limp language is available in the source repository at:
-https://github.com/lgwagner/SIMPAL/blob/master/documentation/SIMPAL.docx
+https://github.com/lgwagner/SIMPAL/blob/master/documentation/SIMPAL.pdf
