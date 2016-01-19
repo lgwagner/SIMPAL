@@ -13,3 +13,5 @@ The tool does require the user to install:
 
 A document describing the function and features of the tool and the Limp language is available in the source repository at:
 https://github.com/lgwagner/SIMPAL/blob/master/documentation/SIMPAL.pdf
+
+keywords: compositional reasoning imperative viability reachability jkind k-induction lustre control flow
