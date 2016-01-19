@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Limp Base Language Plugin (UI)
+Bundle-Vendor: Rockwell Collins
+Bundle-Version: 1.0.1.limp_base_UI
+Bundle-SymbolicName: com.rockwellcollins.atc.limp.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: com.rockwellcollins.atc.limp;visibility:=reexport,
+ org.eclipse.xtext.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.ui,
+ org.eclipse.xtext.builder,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types.ui,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.compare
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.xbase.lib
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: com.rockwellcollins.atc.ui.quickfix,
+ com.rockwellcollins.atc.ui.contentassist,
+ com.rockwellcollins.atc.ui.contentassist.antlr,
+ com.rockwellcollins.atc.ui.internal,
+ com.rockwellcollins.atc.ui.contentassist.antlr.internal
+Bundle-Activator: com.rockwellcollins.atc.ui.internal.LimpActivator

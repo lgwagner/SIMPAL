@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Translate Limp To Lustre
+Bundle-SymbolicName: com.rockwellcollins.atc.limp.translate.lustre;singleton:=true
+Bundle-Version: 1.0.1.translate_lustre
+Bundle-Activator: com.rockwellcollins.atc.limp.translate.main.Activator
+Bundle-Vendor: Rockwell Collins
+Require-Bundle: 
+ com.rockwellcollins.atc.limp.ui;bundle-version="1.0.0",
+ com.rockwellcollins.atc.limp;bundle-version="1.0.0",
+ org.eclipse.ui,
+ org.eclipse.xtext.ui;bundle-version="2.4.3",
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .,
+ dependencies/jkind-api.jar,
+ dependencies/jxl.jar,
+ dependencies/xstream-1.4.8.jar,
+ dependencies/jaxb-api-2.2.3.jar
+Import-Package: com.rockwellcollins.atc.limp.util
+Export-Package: com.rockwellcollins.atc.limp.translate.basicblocks.limp,
+ com.rockwellcollins.atc.limp.translate.lustre.limp2lustre,
+ com.rockwellcollins.atc.limp.translate.lustre.transformations,
+ com.rockwellcollins.atc.limp.translate.main,
+ javax.xml.bind,
+ jkind.lustre

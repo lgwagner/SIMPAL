@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.rockwellcollins.atc.limp/src-gen" editDirectory="/com.rockwellcollins.atc.limp.edit/src"
+    editorDirectory="/com.rockwellcollins.atc.limp.editor/src" modelPluginID="com.rockwellcollins.atc.limp"
+    forceOverwrite="true" modelName="Limp" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="6.0" copyrightFields="false" editPluginID="com.rockwellcollins.atc.limp.edit"
+    editorPluginID="com.rockwellcollins.atc.limp.editor" runtimeVersion="2.11">
+  <genPackages prefix="Limp" basePackage="com.rockwellcollins.atc" disposableProviderFactory="true"
+      fileExtensions="limp" ecorePackage="Limp.ecore#/">
+    <genClasses ecoreClass="Limp.ecore#//Specification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//Specification/declarations"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//Declaration"/>
+    <genClasses ecoreClass="Limp.ecore#//Comment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Limp.ecore#//Comment/comment"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Limp.ecore#//Import/importURI"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//ExternalFunction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Limp.ecore#//ExternalFunction/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//ExternalFunction/inputs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//ExternalFunction/output"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//ExternalProcedure">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Limp.ecore#//ExternalProcedure/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//ExternalProcedure/inputs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//ExternalProcedure/outputs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//ExternalProcedure/attributeBlock"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//LocalFunction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Limp.ecore#//LocalFunction/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//LocalFunction/inputs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//LocalFunction/output"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//LocalFunction/varBlock"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//LocalFunction/equationBlock"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//LocalProcedure">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Limp.ecore#//LocalProcedure/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//LocalProcedure/inputs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//LocalProcedure/outputs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//LocalProcedure/varBlock"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//LocalProcedure/attributeBlock"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//LocalProcedure/statementblock"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//TypeDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Limp.ecore#//TypeDeclaration/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//VarBlock"/>
+    <genClasses ecoreClass="Limp.ecore#//EnumTypeDef">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//EnumTypeDef/enumerations"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//EnumValue"/>
+    <genClasses ecoreClass="Limp.ecore#//RecordTypeDef">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//RecordTypeDef/fields"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//ArrayTypeDef">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//ArrayTypeDef/baseType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Limp.ecore#//ArrayTypeDef/size"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//AbstractTypeDef"/>
+    <genClasses ecoreClass="Limp.ecore#//RecordFieldType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Limp.ecore#//RecordFieldType/fieldName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//RecordFieldType/fieldType"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//ConstantDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//ConstantDeclaration/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//ConstantDeclaration/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//GlobalDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//GlobalDeclaration/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//VariableRef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Limp.ecore#//VariableRef/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//InputArgList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//InputArgList/inputArgs"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//InputArg">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//InputArg/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//LocalArg">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//LocalArg/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//OutputArgList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//OutputArgList/outputArgs"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//OutputArg">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//OutputArg/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//Type"/>
+    <genClasses ecoreClass="Limp.ecore#//AttributeBlock"/>
+    <genClasses ecoreClass="Limp.ecore#//Attribute"/>
+    <genClasses ecoreClass="Limp.ecore#//Precondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Limp.ecore#//Precondition/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//Precondition/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//Postcondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Limp.ecore#//Postcondition/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//Postcondition/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//DefineUseRef">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//DefineUseRef/referenceExpr"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//Define">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//Define/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//Uses">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//Uses/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//StatementBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//StatementBlock/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//Statement"/>
+    <genClasses ecoreClass="Limp.ecore#//VoidStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//VoidStatement/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//AssignmentStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//AssignmentStatement/ids"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//AssignmentStatement/rhs"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//IfThenElseStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//IfThenElseStatement/cond"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//IfThenElseStatement/thenBlock"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//IfThenElseStatement/else"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//Else"/>
+    <genClasses ecoreClass="Limp.ecore#//WhileStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//WhileStatement/cond"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//WhileStatement/block"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//ForStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//ForStatement/initStatement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//ForStatement/limitExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//ForStatement/incrementStatement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//ForStatement/block"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//LabelStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Limp.ecore#//LabelStatement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//GotoStatement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Limp.ecore#//GotoStatement/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//GotoStatement/whenExpr"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//EquationBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//EquationBlock/equations"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//Equation"/>
+    <genClasses ecoreClass="Limp.ecore#//IdList">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Limp.ecore#//IdList/ids"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//Expr"/>
+    <genClasses ecoreClass="Limp.ecore#//FunctionRef"/>
+    <genClasses ecoreClass="Limp.ecore#//ArrayExpr">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Limp.ecore#//ArrayExpr/arrayDefinition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//ArrayExpr/exprList"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//RecordExpr">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Limp.ecore#//RecordExpr/recordDefinition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//RecordExpr/fieldExprList"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//RecordFieldExpr">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Limp.ecore#//RecordFieldExpr/fieldName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//RecordFieldExpr/fieldExpr"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//ExprList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//ExprList/exprList"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//TypeAlias">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//TypeAlias/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//SomeVarBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//SomeVarBlock/locals"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//NoVarBlock"/>
+    <genClasses ecoreClass="Limp.ecore#//VoidType"/>
+    <genClasses ecoreClass="Limp.ecore#//BoolType"/>
+    <genClasses ecoreClass="Limp.ecore#//IntegerType"/>
+    <genClasses ecoreClass="Limp.ecore#//RealType"/>
+    <genClasses ecoreClass="Limp.ecore#//StringType"/>
+    <genClasses ecoreClass="Limp.ecore#//EnumType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Limp.ecore#//EnumType/enumDef"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//RecordType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Limp.ecore#//RecordType/recordDef"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//ArrayType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Limp.ecore#//ArrayType/arrayDef"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//AbstractType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Limp.ecore#//AbstractType/abstractDef"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//NamedType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Limp.ecore#//NamedType/alias"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//SomeAttributeBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//SomeAttributeBlock/attributeList"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//NoAttributeBlock"/>
+    <genClasses ecoreClass="Limp.ecore#//BreakStatement"/>
+    <genClasses ecoreClass="Limp.ecore#//ContinueStatement"/>
+    <genClasses ecoreClass="Limp.ecore#//ReturnStatement"/>
+    <genClasses ecoreClass="Limp.ecore#//ElseBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//ElseBlock/block"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//ElseIf">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//ElseIf/ifThenElse"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//NoElse"/>
+    <genClasses ecoreClass="Limp.ecore#//IfThenElseExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//IfThenElseExpr/condExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//IfThenElseExpr/thenExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//IfThenElseExpr/elseExpr"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//ChoiceExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//ChoiceExpr/first"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//ChoiceExpr/second"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//BinaryExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//BinaryExpr/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Limp.ecore#//BinaryExpr/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//BinaryExpr/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//UnaryNegationExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//UnaryNegationExpr/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//UnaryMinusExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//UnaryMinusExpr/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//RecordAccessExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//RecordAccessExpr/record"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Limp.ecore#//RecordAccessExpr/field"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//RecordUpdateExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//RecordUpdateExpr/record"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Limp.ecore#//RecordUpdateExpr/field"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//RecordUpdateExpr/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//ArrayAccessExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//ArrayAccessExpr/array"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//ArrayAccessExpr/index"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//ArrayUpdateExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//ArrayUpdateExpr/access"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//ArrayUpdateExpr/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//BooleanLiteralExpr">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Limp.ecore#//BooleanLiteralExpr/boolVal"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//IntegerLiteralExpr">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Limp.ecore#//IntegerLiteralExpr/intVal"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//IntegerWildCardExpr"/>
+    <genClasses ecoreClass="Limp.ecore#//RealLiteralExpr">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Limp.ecore#//RealLiteralExpr/realVal"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//StringLiteralExpr">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Limp.ecore#//StringLiteralExpr/stringVal"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//InitExpr">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Limp.ecore#//InitExpr/id"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//SecondInit">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Limp.ecore#//SecondInit/id"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//IdExpr">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Limp.ecore#//IdExpr/id"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//FcnCallExpr">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Limp.ecore#//FcnCallExpr/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//FcnCallExpr/exprs"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//TupleType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Limp.ecore#//TupleType/typeList"/>
+    </genClasses>
+    <genClasses ecoreClass="Limp.ecore#//FreshVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Limp.ecore#//FreshVariable/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

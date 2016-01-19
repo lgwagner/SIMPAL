@@ -1,0 +1,40 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Limp Base Language Plugin
+Bundle-Vendor: Rockwell Collins
+Bundle-Version: 1.0.1.limp_base
+Bundle-SymbolicName: com.rockwellcollins.atc.limp; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext;visibility:=reexport,
+ org.eclipse.xtext.xbase;resolution:=optional;visibility:=reexport,
+ org.eclipse.xtext.generator;resolution:=optional,
+ org.apache.commons.logging;bundle-version="1.0.4";resolution:=optional,
+ org.eclipse.emf.codegen.ecore;resolution:=optional,
+ org.eclipse.emf.mwe.utils;resolution:=optional,
+ org.eclipse.emf.mwe2.launch;resolution:=optional,
+ org.eclipse.xtext.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types,
+ org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
+ org.eclipse.equinox.common;bundle-version="3.7.0"
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.xbase.lib
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: com.rockwellcollins.atc,
+ com.rockwellcollins.atc.formatting,
+ com.rockwellcollins.atc.limp,
+ com.rockwellcollins.atc.limp.exceptions,
+ com.rockwellcollins.atc.limp.impl,
+ com.rockwellcollins.atc.limp.reasoning.visitor,
+ com.rockwellcollins.atc.limp.slicer,
+ com.rockwellcollins.atc.limp.util,
+ com.rockwellcollins.atc.limp.utils,
+ com.rockwellcollins.atc.parser.antlr,
+ com.rockwellcollins.atc.parser.antlr.internal,
+ com.rockwellcollins.atc.scoping,
+ com.rockwellcollins.atc.serializer,
+ com.rockwellcollins.atc.services,
+ com.rockwellcollins.atc.validation
+

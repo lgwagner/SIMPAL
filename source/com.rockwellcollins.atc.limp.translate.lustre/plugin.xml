@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="Translate To Lustre"
+            visible="true"
+            id="com.rockwellcollins.atc.limp.translate.lustre.actionSet">
+         <menu
+               label="Translate"
+               id="translateMenu">
+            <separator
+                  name="translateGroup">
+            </separator>
+         </menu>
+         <action
+               label="&amp;Analyze"
+               icon="icons/sample.gif"
+               class="com.rockwellcollins.atc.limp.translate.lustre.actions.TranslateLimp2Lustre"
+               tooltip="Translate Limp To Lustre"
+               menubarPath="translateMenu/translateGroup"
+               toolbarPath="translateGroup"
+               id="com.rockwellcollins.atc.limp.translate.lustre.actions.Translate2Lustre">
+         </action>
+      </actionSet>
+   </extension>
+   <extension point="org.eclipse.ui.views">
+      <category
+            id="com.rockwellcollins.atc.limp.translate.lustre"
+            name="Limp">
+      </category>
+        <view
+              category="com.rockwellcollins.atc.limp.translate.lustre"
+              class="com.rockwellcollins.atc.limp.translate.lustre.views.JKindResultsView"
+              icon="icons/sample.gif"
+              id="com.rockwellcollins.atc.limp.translate.lustre.views.jKindResultsView"
+              name="Analysis Results"/>
+		<view
+              category="com.rockwellcollins.atc.limp.translate.lustre"
+              class="com.rockwellcollins.atc.limp.translate.lustre.views.JKindCounterexampleView"
+              icon="icons/sample.gif"
+              id="com.rockwellcollins.atc.limp.translate.lustre.views.jKindCounterexampleView"
+              name="Counterexample"/>              
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.ui.ide.workbench"
+            name="SIMPAL">
+         <property
+               name="windowImages"
+               value="icons/simpal_16.png,icons/simpal_32.png,icons/simpal_48.png,icons/simpal_64.png,icons/simpal_128.png,icons/simpal_256.png">
+         </property>
+         <property
+               name="aboutText"
+               value="SIMPAL">
+         </property>
+         <property
+               name="aboutImage"
+               value="icons/simpal_128.png">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="FFFFFF">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="2,290,448,10">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="7,265,320,20">
+         </property>
+         <property
+               name="appName"
+               value="SIMPAL">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
+      </product>
+   </extension>
+</plugin>

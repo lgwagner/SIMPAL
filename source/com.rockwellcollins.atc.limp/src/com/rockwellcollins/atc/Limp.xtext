@@ -1,0 +1,357 @@
+grammar com.rockwellcollins.atc.Limp hidden(WS, SL_COMMENT, ML_COMMENT)
+
+generate limp "http://www.rockwellcollins.com/atc/Limp"
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+Specification:
+	(declarations+=Declaration)*
+;
+
+Declaration:
+	Import
+|	Comment
+|	ExternalFunction
+|	ExternalProcedure
+|	LocalFunction
+|	LocalProcedure
+|	ConstantDeclaration
+|	GlobalDeclaration
+|	TypeDeclaration;
+
+Comment:
+	comment=SEMANTIC_COMMENT
+;
+
+terminal SEMANTIC_COMMENT : '/#' -> '#/';
+
+Import:
+	'import' (importURI=STRING)
+;
+
+ExternalFunction:
+	'external' 'function' (name = ID) '(' inputs=InputArgList ')' 'returns' '(' output=OutputArg ')'
+;
+
+ExternalProcedure:
+	'external' 'procedure' (name = ID) '(' inputs=InputArgList ')' 'returns' '(' outputs=OutputArgList ')'
+	(attributeBlock=AttributeBlock)
+;
+
+LocalFunction:
+	'function' (name = ID) '(' inputs=InputArgList ')' 'returns' '(' output=OutputArg ')'
+	(varBlock=VarBlock)
+	'equations' (equationBlock=EquationBlock)
+;
+
+LocalProcedure:
+	'procedure' (name = ID) '(' inputs=InputArgList ')' 'returns' '(' outputs=OutputArgList ')'
+	(varBlock=VarBlock)
+	(attributeBlock=AttributeBlock)
+	'statements' (statementblock=StatementBlock)
+;
+
+TypeDeclaration:
+	{TypeAlias} 'type' (name=ID) '=' (type=Type)
+|	EnumTypeDef
+|	RecordTypeDef
+|	ArrayTypeDef
+|	AbstractTypeDef
+;
+
+VarBlock:
+	{SomeVarBlock} 'var' '{' (locals+=LocalArg)* '}'
+|	{NoVarBlock}
+;
+
+EnumTypeDef:
+	'type' 'enum' (name=ID) '=' '{' (enumerations+=EnumValue) (',' enumerations+=EnumValue)* '}'
+;
+
+EnumValue:
+	{EnumValue} (name=ID)
+;
+
+RecordTypeDef:
+ 	'type' 'record'  (name=ID) '=' '{' (fields+=RecordFieldType) (',' fields+=RecordFieldType)* '}'	
+;
+
+ArrayTypeDef:
+	'type' 'array' (name=ID) '=' (baseType=Type) '[' size=(INT) ']'
+;
+
+AbstractTypeDef:
+	'type' 'abstract' (name=ID)
+;
+
+RecordFieldType:
+	(fieldName=ID) ':' (fieldType=Type)
+;
+
+ConstantDeclaration:
+	'constant' (name=ID) ':' (type=Type) ('=' (expr=Expr))?
+;	
+
+GlobalDeclaration:
+	'global' (name=ID) ':' (type=Type)
+;
+
+VariableRef:
+	InputArg
+|	LocalArg
+|	OutputArg
+|	ConstantDeclaration
+|	GlobalDeclaration
+|	EnumValue
+;
+
+InputArgList: 
+	{InputArgList} ((inputArgs+=InputArg) (',' inputArgs+=InputArg)*)?
+;
+
+InputArg:
+	(name=ID) ':' (type=Type)
+;
+
+LocalArg:
+	(name=ID) ':' (type=Type) ';'
+;
+
+OutputArgList: 
+	{OutputArgList} ((outputArgs+=OutputArg) (',' outputArgs+=OutputArg)*)?
+;
+
+OutputArg:
+	(name=ID) ':' (type=Type)
+;
+
+Type:
+	{VoidType} 'void'
+|	{BoolType} 'bool'
+|	{IntegerType} 'int'
+|	{RealType} 'real'
+|	{StringType} 'string'
+|	{EnumType} 'enum' (enumDef=[EnumTypeDef])
+|	{RecordType} 'record' (recordDef=[RecordTypeDef])
+|	{ArrayType} 'array' (arrayDef=[ArrayTypeDef])
+|	{AbstractType} 'abstract' (abstractDef=[AbstractTypeDef])
+|	{NamedType} (alias=[TypeAlias])
+;
+
+AttributeBlock:
+	{SomeAttributeBlock} 'attributes' '{' (attributeList+=Attribute)* '}'
+|	{NoAttributeBlock}
+;
+
+Attribute:
+	Precondition
+|	Postcondition
+|	Define
+|	Uses
+;
+
+Precondition:
+	'precondition' (name=ID) '=' (expr=Expr) ';'
+;
+
+Postcondition:
+	'postcondition' (name=ID) '=' (expr=Expr) ';'
+;
+
+DefineUseRef:
+	(referenceExpr=Expr)
+;
+
+Define:
+	'defines' (elements+=DefineUseRef) (',' elements+=DefineUseRef)* ';'
+;
+
+Uses:
+	'uses' (elements+=DefineUseRef) (',' elements+=DefineUseRef)* ';'
+;
+
+StatementBlock:
+	{StatementBlock} '{' (statements+=Statement)* '}'
+;
+
+Statement:
+	VoidStatement
+|	AssignmentStatement
+|	IfThenElseStatement
+|	WhileStatement
+|	ForStatement
+|	GotoStatement
+|	LabelStatement
+|	{BreakStatement} 'break' ';'
+|	{ContinueStatement} 'continue' ';'
+|	{ReturnStatement} 'return' ';'
+;
+
+VoidStatement:
+	(expr=Expr) ';'
+;
+
+AssignmentStatement:
+	(ids=IdList) '=' (rhs=Expr) ';'
+;
+
+IfThenElseStatement:
+	'if' (cond=Expr)
+	'then' (thenBlock=StatementBlock)
+	(else=Else)
+;
+
+Else:
+	{ElseBlock} 'else' (block=StatementBlock)
+|	{ElseIf} 'else' (ifThenElse=IfThenElseStatement)
+|	{NoElse}
+;
+
+WhileStatement:
+	'while' (cond=Expr) (block=StatementBlock)
+;
+
+ForStatement:
+	'for' '(' (initStatement=AssignmentStatement) (limitExpr=Expr) ';' (incrementStatement=AssignmentStatement) ')' (block = StatementBlock)
+;
+
+LabelStatement:
+	'label' (name=ID) ';'
+;
+
+GotoStatement:
+	{GotoStatement} 'goto' (label=[LabelStatement]) ('when' (whenExpr=Expr))? ';'
+;
+
+EquationBlock:
+	{EquationBlock} '{' (equations+=Equation)* '}'
+;
+
+Equation:
+	VoidStatement
+|	AssignmentStatement
+;
+
+IdList:
+	(ids+=[VariableRef]) (',' (ids+=[VariableRef]))* 
+;
+
+Expr:
+	IfThenElseExpr
+;
+
+IfThenElseExpr returns Expr:
+	ChoiceExpr (=>({IfThenElseExpr.condExpr=current} '?') (thenExpr=Expr) ':' (elseExpr=Expr))?
+;
+
+ChoiceExpr returns Expr:
+	{ChoiceExpr} 'choice' '(' (first=Expr) ',' (second=Expr) ')' //analysis cannot be run if a spec contains this
+|	ImpliesExpr 
+;
+
+ImpliesExpr returns Expr:
+	OrExpr (=>({BinaryExpr.left=current} op='=>') right=ImpliesExpr)?
+;
+
+OrExpr returns Expr:
+	AndExpr (=>({BinaryExpr.left=current} op='or') right=AndExpr)*
+;
+
+AndExpr returns Expr:
+	RelationalExpr (=>({BinaryExpr.left=current} op='and') right=RelationalExpr)*
+;
+
+RelationalOp:
+	'<' | '<=' | '>' | '>=' | '==' | '<>'
+;
+
+RelationalExpr returns Expr:
+	PlusExpr (=>({BinaryExpr.left=current} op=RelationalOp) right=PlusExpr)?
+;
+
+PlusExpr returns Expr:
+	MultExpr (=>({BinaryExpr.left=current} op=('+' | '-')) right=MultExpr)*
+;
+
+MultExpr returns Expr:
+	UnaryExpr (=>({BinaryExpr.left=current} op=('*' | '/')) right=UnaryExpr)*
+;
+
+UnaryExpr returns Expr:
+	AccessExpr
+|	{UnaryNegationExpr} 'not' (expr=UnaryExpr)
+|	{UnaryMinusExpr} '-' (expr=UnaryExpr)
+;
+
+AccessExpr returns Expr:
+	TerminalExpr ( =>({RecordAccessExpr.record=current} '.') field=ID
+		       	 | =>({RecordUpdateExpr.record=current} '{' field=ID ':=') value=Expr '}'
+		       	 | =>({ArrayAccessExpr.array=current} '[') index=Expr
+		       	      (=>({ArrayUpdateExpr.access=current} ':=') value=Expr)? ']'
+		       	 )*
+;
+
+FunctionRef:
+	ExternalFunction
+|	ExternalProcedure
+|	LocalFunction
+|	LocalProcedure
+;
+
+TerminalExpr returns Expr:
+	'(' Expr ')'
+|	{BooleanLiteralExpr} (boolVal=BOOLEAN)
+|	{IntegerLiteralExpr} (intVal=INT)
+|	{IntegerWildCardExpr} '*' //analysis cannot be run if this expression is present
+|	{RealLiteralExpr}	(realVal=REAL)
+|	{StringLiteralExpr} (stringVal=STRING)
+|	{InitExpr} 'init' (id=[VariableRef])
+|	{SecondInit} 'second_init' (id=[VariableRef])  //analysis cannot be run if this expression is present
+|	ArrayExpr
+|	RecordExpr
+|	{IdExpr} (id=[VariableRef])
+|	{FcnCallExpr} (id=[FunctionRef]) '(' exprs=ExprList ')'
+;
+
+ArrayExpr:
+	'array' (arrayDefinition=[ArrayTypeDef]) '[' (exprList+=Expr) (',' exprList+=Expr)* ']'
+;
+
+RecordExpr:
+	'record' (recordDefinition=[RecordTypeDef]) '{' (fieldExprList+=RecordFieldExpr) (',' fieldExprList+=RecordFieldExpr)* '}' 
+;
+
+RecordFieldExpr:
+	(fieldName=ID) '=' (fieldExpr=Expr)
+;
+
+ExprList: {ExprList}
+	((exprList+=Expr) (',' exprList+=Expr)*)?
+;
+
+terminal INT returns ecore::EBigInteger: ('0'..'9')+;
+terminal BOOLEAN: 'true' | 'false';
+terminal REAL: INT '.' INT;
+
+terminal ID  	: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+terminal STRING	: 
+			'"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"' |
+			"'" ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|"'") )* "'"
+		; 
+terminal ML_COMMENT	: '/*' -> '*/';
+terminal SL_COMMENT : '//' !('\n'|'\r')* ('\r'? '\n')?;
+terminal WS			: (' '|'\t'|'\r'|'\n')+;
+
+terminal ANY_OTHER: .;
+
+/* This section captures all of the AST objects that we include in the language, but do not
+ * allow the user to write.  They are used to make transformations to the code and simplify
+ * our tasks.
+ */
+ExtendedType returns Type:
+	{TupleType} '(' (typeList+=Type) (',' typeList+=Type)* ')'
+; 
+
+ExtendedExpr returns Expr:
+	{FreshVariable} '@'(value=INT) '@'
+;
