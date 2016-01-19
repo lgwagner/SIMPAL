@@ -1,6 +1,6 @@
 # SIMPAL
 
-SIMPAL (Static IMPerative AnAlyzer) is a tool built to perform compositional reasoning of imperative programs.
+SIMPAL (Static IMPerative AnaLyzer) is a tool built to perform compositional reasoning of imperative programs.
 
 It features a domain specific language called Limp (a portmanteau of Lustre imperative). These programs are
 then compiled into a control flow graph (CFG) and translated into a Lustre model, which can then be analzyed.
